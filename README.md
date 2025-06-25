@@ -12,7 +12,7 @@ This is a responsive Product Showcase web application built with **React.js** an
 - Product listing from Fake Store API
 - Filter by category
 - Sort by price and title
-- Pagination (6 products per page)
+- Pagination (10 products per page)
 - Product detail page
 - Loading and error states
 
