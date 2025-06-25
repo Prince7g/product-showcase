@@ -1,52 +1,59 @@
 # 🛍️ Product Showcase Web App
 
-A fully responsive e-commerce showcase built using **React.js**, **Tailwind CSS**, and **FakeStoreAPI**.
+This is a fully responsive product listing app built with **React.js**, **Tailwind CSS**, and **Vite**.  
+It uses the **FakeStoreAPI** for product data and supports filtering, sorting, pagination, product detail view, and a dummy cart.
 
-> ✅ Includes optional **Magento 2 / PWA Studio integration demo** as per assignment bonus.
+This project was created as part of a frontend developer assignment.
 
 ---
 
 ## 🔗 Live Demo
 
-- **Website:** [https://product-showcase-xclz.vercel.app](https://product-showcase-xclz.vercel.app)
-- **GitHub Repo:** [https://github.com/Prince7g/product-showcase](https://github.com/Prince7g/product-showcase)
+- 🔴 Website: [https://product-showcase-xclz.vercel.app](https://product-showcase-xclz.vercel.app)
+- 🟢 GitHub: [https://github.com/Prince7g/product-showcase](https://github.com/Prince7g/product-showcase)
 
 ---
 
 ## ✨ Features
 
-| Feature                         | Status |
-|---------------------------------|--------|
-| Product Grid (10 per page)      | ✅     |
-| Filter by Category              | ✅     |
-| Filter by Price Range           | ✅     |
-| Sort by Price / Rating / Name   | ✅     |
-| Product Detail Page             | ✅     |
-| Add to Cart (dummy functionality) | ✅   |
-| Cart Page with total calculation| ✅     |
-| Fully responsive UI (Tailwind)  | ✅     |
-| Bonus: Magento 2 GraphQL Demo   | ✅     |
+- Product grid (10 per page)
+- Filter by category and price range
+- Sort by price, rating, and name
+- Product detail page with full info
+- Add to Cart (dummy functionality)
+- Cart page with total calculation
+- Responsive on mobile/tablet/desktop
 
 ---
 
 ## ⚙️ Tech Stack
 
-| Layer       | Tool / Library           |
-|-------------|--------------------------|
-| Framework   | React + Vite             |
-| Styling     | Tailwind CSS             |
-| Routing     | React Router v6          |
-| State Mgmt  | React Context API (for cart) |
-| Data Source | FakeStoreAPI + Magento GraphQL (bonus) |
-| Deployment  | Vercel                   |
+- React 18 (with Vite)
+- Tailwind CSS 3
+- React Router v6
+- React Context API (for Cart)
+- FakeStoreAPI (data)
+- Vercel (deployment)
 
 ---
 
-## 🧩 Magento 2 / PWA Bonus
+## 🧩 Bonus: Magento 2 / PWA Demo
 
-This project includes a **Magento 2 GraphQL demo component**, satisfying the optional bonus in the PDF:
+To fulfill the bonus task in the PDF, I added a GraphQL integration with Adobe's **Magento Venia demo store**.
 
-- ✅ `src/components/MagentoDemo.jsx`  
-- ✅ Queries real product data from **Venia Magento Demo Store** via GraphQL  
-- ✅ Demonstrates Magento PWA Studio compatibility  
-- ✅ Not rendered by default — only shown when manually visited at:
+- File: `src/components/MagentoDemo.jsx`
+- Uses GraphQL to fetch real Magento products
+- Accessible at:  
+  👉 `/magento-demo` route  
+  👉 [https://product-showcase-xclz.vercel.app/magento-demo](https://product-showcase-xclz.vercel.app/magento-demo)
+- Kept separate from the main app so deployment is unaffected
+
+---
+
+## 📦 Installation (for testing locally)
+
+```bash
+git clone https://github.com/Prince7g/product-showcase.git
+cd product-showcase
+npm install
+npm run dev
