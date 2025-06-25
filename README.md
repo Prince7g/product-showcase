@@ -1,59 +1,34 @@
-# 🛍️ Product Showcase Web App
+# Product Showcase Web App
 
-This is a fully responsive product listing app built with **React.js**, **Tailwind CSS**, and **Vite**.  
-It uses the **FakeStoreAPI** for product data and supports filtering, sorting, pagination, product detail view, and a dummy cart.
-
-This project was created as part of a frontend developer assignment.
-
----
+This is a responsive Product Showcase web application built with **React.js** and **Tailwind CSS**. It fetches product data from the **Fake Store API** and includes features such as filtering, sorting, pagination, and a product detail view.
 
 ## 🔗 Live Demo
 
-- 🔴 Website: [https://product-showcase-xclz.vercel.app](https://product-showcase-xclz.vercel.app)
-- 🟢 GitHub: [https://github.com/Prince7g/product-showcase](https://github.com/Prince7g/product-showcase)
+[View Live App](https://product-showcase-1rwp.vercel.app/)
 
----
+## 📁 Features
 
-## ✨ Features
+- Responsive layout
+- Product listing from Fake Store API
+- Filter by category
+- Sort by price and title
+- Pagination (6 products per page)
+- Product detail page
+- Loading and error states
 
-- Product grid (10 per page)
-- Filter by category and price range
-- Sort by price, rating, and name
-- Product detail page with full info
-- Add to Cart (dummy functionality)
-- Cart page with total calculation
-- Responsive on mobile/tablet/desktop
+## 🛠️ Tech Stack
 
----
+- React.js
+- Tailwind CSS
+- React Router DOM
+- Fake Store API
+- Vite (for fast development)
+- Deployed on Vercel
 
-## ⚙️ Tech Stack
+## 🚀 Getting Started
 
-- React 18 (with Vite)
-- Tailwind CSS 3
-- React Router v6
-- React Context API (for Cart)
-- FakeStoreAPI (data)
-- Vercel (deployment)
-
----
-
-## 🧩 Bonus: Magento 2 / PWA Demo
-
-To fulfill the bonus task in the PDF, I added a GraphQL integration with Adobe's **Magento Venia demo store**.
-
-- File: `src/components/MagentoDemo.jsx`
-- Uses GraphQL to fetch real Magento products
-- Accessible at:  
-  👉 `/magento-demo` route  
-  👉 [https://product-showcase-xclz.vercel.app/magento-demo](https://product-showcase-xclz.vercel.app/magento-demo)
-- Kept separate from the main app so deployment is unaffected
-
----
-
-## 📦 Installation (for testing locally)
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/Prince7g/product-showcase.git
 cd product-showcase
-npm install
-npm run dev
