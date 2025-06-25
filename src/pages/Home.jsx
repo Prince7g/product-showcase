@@ -2,16 +2,14 @@ import { useEffect, useState } from 'react';
 import { fetchAllProducts, fetchCategories } from '../utils/api';
 import ProductCard from '../components/ProductCard';
 import FilterSidebar from '../components/FilterSidebar';
-// import MagentoDemo from '../components/MagentoDemo'; // Uncomment for demo
+// import MagentoDemo from '../components/MagentoDemo'; // Optional
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-
   const [sortBy, setSortBy] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [priceRange, setPriceRange] = useState({ min: '', max: '' });
-
   const [currentPage, setCurrentPage] = useState(1);
   const PRODUCTS_PER_PAGE = 10;
 
@@ -73,7 +71,7 @@ export default function Home() {
           </select>
         </div>
 
-        {/* Optional demo component for bonus (leave commented in prod) */}
+        {/* Optional demo component for bonus (keep commented) */}
         {/* <MagentoDemo /> */}
 
         {current.length === 0 ? (
@@ -104,4 +102,4 @@ export default function Home() {
       </div>
     </div>
   );
-      }
+    }
