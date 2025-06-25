@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchAllProducts, fetchCategories } from '../utils/api';
 import ProductCard from '../components/ProductCard';
 import FilterSidebar from '../components/FilterSidebar';
+// import MagentoDemo from '../components/MagentoDemo'; // Uncomment for demo
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -21,15 +22,13 @@ export default function Home() {
     })();
   }, []);
 
-  // FILTER
   const filtered = products.filter((p) => {
-    const matchCategory = selectedCategory ? p.category === selectedCategory : true;
+    const matchCat = selectedCategory ? p.category === selectedCategory : true;
     const matchMin = priceRange.min === '' || p.price >= priceRange.min;
     const matchMax = priceRange.max === '' || p.price <= priceRange.max;
-    return matchCategory && matchMin && matchMax;
+    return matchCat && matchMin && matchMax;
   });
 
-  // SORT
   const sorted = [...filtered].sort((a, b) => {
     if (sortBy === 'price') return a.price - b.price;
     if (sortBy === 'rating') return b.rating.rate - a.rating.rate;
@@ -37,33 +36,28 @@ export default function Home() {
     return 0;
   });
 
-  // PAGINATION
   const totalPages = Math.ceil(sorted.length / PRODUCTS_PER_PAGE);
-  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
-  const currentProducts = sorted.slice(startIndex, startIndex + PRODUCTS_PER_PAGE);
+  const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const current = sorted.slice(start, start + PRODUCTS_PER_PAGE);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, priceRange, sortBy]);
-
-  const clearFilters = () => {
+  const clear = () => {
     setSelectedCategory('');
     setPriceRange({ min: '', max: '' });
   };
 
+  useEffect(() => setCurrentPage(1), [selectedCategory, priceRange, sortBy]);
+
   return (
     <div className="container mx-auto px-4 py-6 flex flex-col sm:flex-row gap-6">
-      {/* Filter Sidebar */}
       <FilterSidebar
         categories={categories}
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
         priceRange={priceRange}
         onPriceRangeChange={setPriceRange}
-        onClear={clearFilters}
+        onClear={clear}
       />
 
-      {/* Product Grid */}
       <div className="flex-1">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold">Products</h1>
@@ -79,17 +73,19 @@ export default function Home() {
           </select>
         </div>
 
-        {currentProducts.length === 0 ? (
+        {/* Optional demo component for bonus (leave commented in prod) */}
+        {/* <MagentoDemo /> */}
+
+        {current.length === 0 ? (
           <p>No products found.</p>
         ) : (
           <>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {currentProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+              {current.map((p) => (
+                <ProductCard key={p.id} product={p} />
               ))}
             </div>
 
-            {/* Pagination */}
             <div className="flex justify-center mt-6 space-x-2">
               {Array.from({ length: totalPages }, (_, i) => (
                 <button
@@ -108,4 +104,4 @@ export default function Home() {
       </div>
     </div>
   );
-     }
+      }
